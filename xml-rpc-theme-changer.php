@@ -10,13 +10,36 @@ Version: 1.0
 
 // Returns an array of themes in Wordpress
 function theme_get_themes() {
-	return wp_get_themes(false, true);
+	global $wp_xmlrpc_server;
+    $wp_xmlrpc_server->escape( $params );
+	
+	$username = $params[0];
+	$password = $params[1];
+	
+	if ( ! $user = $wp_xmlrpc_server->login( $username, $password ) ) {
+        return $wp_xmlrpc_server->error;
+	}
+	else {
+		return wp_get_themes(false, true);
+	}	
+	
 }
 
 // Switches theme in Wordpress
 function theme_switch_themes($params) {
-	$theme = $params[3];
-	switch_theme( $theme );
+	global $wp_xmlrpc_server;
+    $wp_xmlrpc_server->escape( $params );
+	
+	$username = $params[0];
+	$password = $params[1];
+	$theme = $params[2];
+	
+	if ( ! $user = $wp_xmlrpc_server->login( $username, $password ) ) {
+        return $wp_xmlrpc_server->error;
+	}
+	else {
+		switch_theme( $theme );
+	}
 }
 
 // Creates methods for theme functions 
