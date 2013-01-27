@@ -11,7 +11,7 @@ Version: 1.0
 // Returns an array of themes in Wordpress
 function theme_get_themes() {
 	global $wp_xmlrpc_server;
-    $wp_xmlrpc_server->escape( $params );
+	$wp_xmlrpc_server->escape( $params );
 	
 	$username = $params[0];
 	$password = $params[1];
@@ -28,7 +28,7 @@ function theme_get_themes() {
 // Switches theme in Wordpress
 function theme_switch_themes($params) {
 	global $wp_xmlrpc_server;
-    $wp_xmlrpc_server->escape( $params );
+	$wp_xmlrpc_server->escape( $params );
 	
 	$username = $params[0];
 	$password = $params[1];
