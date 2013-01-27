@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: XML-RPC Theme Changer
-Plugin URI: http://blog.dailyinvention.com
+Plugin URI: https://github.com/dailyinvention/xml-rpc-theme-changer
 Description: Allows the ability to get and switch themes using XML-RPC.
 Author: Stefan Holodnick
 Author URI: http://blog.dailyinvention.com
