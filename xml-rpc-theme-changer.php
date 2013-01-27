@@ -9,7 +9,7 @@ Version: 1.0
 */
 
 // Returns an array of themes in Wordpress
-function theme_get_themes() {
+function theme_get_themes($params) {
 	global $wp_xmlrpc_server;
 	$wp_xmlrpc_server->escape( $params );
 	
