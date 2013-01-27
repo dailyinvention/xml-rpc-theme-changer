@@ -8,21 +8,25 @@ Author URI: http://blog.dailyinvention.com
 Version: 1.0
 */
 
+// Returns an array of themes in Wordpress
 function theme_get_themes() {
 	return wp_get_themes(false, true);
 }
 
+// Switches theme in Wordpress
 function theme_switch_themes($params) {
 	$theme = $params[3];
 	switch_theme( $theme );
 }
- 
+
+// Creates methods for theme functions 
 function theme_methods($methods) {
 	$methods['themes.getThemes'] = 'theme_get_themes';
 	$methods['themes.switchThemes'] = 'theme_switch_themes';
 	return $methods;
 }
 
+// Adds methods to Wordpress's XML-RPC methods
 add_filter('xmlrpc_methods', 'theme_methods');
 
 ?>
