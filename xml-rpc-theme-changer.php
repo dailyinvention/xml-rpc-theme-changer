@@ -20,7 +20,28 @@ function theme_get_themes($params) {
         return $wp_xmlrpc_server->error;
 	}
 	else {
-		return wp_get_themes(false, true);
+		$keys = wp_get_themes(false, true);
+		foreach ($keys as $key => $value) {
+			$theme_name = wp_get_theme($key);
+			$theme_names->$key = $theme_name->Name;
+		}
+		return $theme_names;
+	}	
+	
+}
+
+function theme_get_active_theme($params) {
+	global $wp_xmlrpc_server;
+	$wp_xmlrpc_server->escape( $params );
+	
+	$username = $params[0];
+	$password = $params[1];
+	
+	if ( ! $user = $wp_xmlrpc_server->login( $username, $password ) ) {
+        return $wp_xmlrpc_server->error;
+	}
+	else {
+		return get_current_theme();
 	}	
 	
 }
@@ -45,6 +66,7 @@ function theme_switch_themes($params) {
 // Creates methods for theme functions 
 function theme_methods($methods) {
 	$methods['themes.getThemes'] = 'theme_get_themes';
+	$methods['themes.getActiveTheme'] = 'theme_get_active_theme';
 	$methods['themes.switchThemes'] = 'theme_switch_themes';
 	return $methods;
 }
