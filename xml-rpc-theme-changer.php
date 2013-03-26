@@ -30,7 +30,7 @@ function theme_get_themes($params) {
 	
 }
 
-//Returns active theme name
+// Returns active theme name
 function theme_get_active_theme($params) {
 	global $wp_xmlrpc_server;
 	$wp_xmlrpc_server->escape( $params );
