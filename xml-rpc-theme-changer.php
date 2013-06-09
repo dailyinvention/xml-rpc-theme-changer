@@ -6,6 +6,7 @@ Description: Allows the ability to get and switch themes using XML-RPC.
 Author: Stefan Holodnick
 Author URI: http://blog.dailyinvention.com
 Version: 1.0
+License: GPLv2
 */
 //Enables editor access to necessary functions when plugin is enabled
 
